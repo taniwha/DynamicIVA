@@ -7,6 +7,7 @@ PLUGINDIR	:= ${DIVAGAMEDATA}/Plugins
 TARGETS		:= DynamicIVA.dll
 
 DIVA_FILES := \
+	CameraWatcher.cs \
 	InternalModelSwitch.cs \
 	NodeChecker.cs \
 	PartModelSwitch.cs \

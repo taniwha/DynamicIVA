@@ -100,19 +100,8 @@ namespace DynamicIVA {
 
 		List<SwitchInfo> switch_infos;
 		public string configString;
-		
-		IEnumerator DelayedStart ()
-		{
-			yield return null;
-			yield return null;
-			yield return null;
-			yield return null;
-			foreach (var si in switch_infos) {
-				si.Start ();
-			}
-		}
 
-		public override void OnUpdate ()
+		public void SetVisible ()
 		{
 			foreach (var si in switch_infos) {
 				si.Update ();
@@ -126,7 +115,9 @@ namespace DynamicIVA {
 			}
 			var node = ConfigNode.Parse (configString).GetNode ("MODULE");
 			CreateSwitchInfos (node);
-			StartCoroutine (DelayedStart ());
+			foreach (var si in switch_infos) {
+				si.Start ();
+			}
 		}
 
 		void CreateSwitchInfos (ConfigNode node)
