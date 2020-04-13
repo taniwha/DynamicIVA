@@ -21,7 +21,7 @@ DOC_FILES := \
 #	README.md
 
 RESGEN2		:= resgen2
-GMCS		:= gmcs
+GMCS		:= mcs
 GMCSFLAGS	:= -optimize -warnaserror
 GIT			:= git
 TAR			:= tar
@@ -45,7 +45,10 @@ info:
 
 DynamicIVA.dll: ${DIVA_FILES}
 	${GMCS} ${GMCSFLAGS} -t:library -lib:${MANAGED} \
-		-r:Assembly-CSharp,Assembly-CSharp-firstpass,UnityEngine \
+		-r:Assembly-CSharp,Assembly-CSharp-firstpass \
+		-r:UnityEngine \
+		-r:UnityEngine.UI \
+		-r:UnityEngine.CoreModule \
 		-out:$@ $^
 
 #DynamicIVA.png: DynamicIVA.svg

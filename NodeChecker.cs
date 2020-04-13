@@ -57,7 +57,7 @@ namespace DynamicIVA {
 
 			public void Start (PartModule.StartState state)
 			{
-				attachNode = part.findAttachNode (name);
+				attachNode = part.FindAttachNode (name);
 				if (state == PartModule.StartState.Editor) {
 					Update ();
 				}
